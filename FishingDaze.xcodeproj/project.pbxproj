@@ -18,6 +18,7 @@
 		52B2B21E22BBF03E0022C15C /* FishingDazeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B2B21D22BBF03E0022C15C /* FishingDazeTests.swift */; };
 		52D59D7122C578EF003CCB69 /* JournalEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D59D7022C578EF003CCB69 /* JournalEntryViewController.swift */; };
 		52D59D7322C584BC003CCB69 /* JournalEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D59D7222C584BC003CCB69 /* JournalEditorViewController.swift */; };
+		55B8FC0E2329C20C00BFBE0D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B8FC0D2329C20C00BFBE0D /* Date+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		52B2B21F22BBF03E0022C15C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52D59D7022C578EF003CCB69 /* JournalEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryViewController.swift; sourceTree = "<group>"; };
 		52D59D7222C584BC003CCB69 /* JournalEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEditorViewController.swift; sourceTree = "<group>"; };
+		55B8FC0D2329C20C00BFBE0D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		52B2B20422BBF03D0022C15C /* FishingDaze */ = {
 			isa = PBXGroup;
 			children = (
+				55B8FC0C2329C1F600BFBE0D /* Extensions */,
 				52A382F322CD6166008E7025 /* Model */,
 				52A382F522CD61A3008E7025 /* View */,
 				52D59D6F22C57463003CCB69 /* Controller */,
@@ -141,6 +144,14 @@
 				527EBFDD22D7CCE900051BA0 /* JournalEntryTableViewCell.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		55B8FC0C2329C1F600BFBE0D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				55B8FC0D2329C20C00BFBE0D /* Date+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +260,7 @@
 				52B2B20822BBF03D0022C15C /* JournalListViewController.swift in Sources */,
 				52D59D7322C584BC003CCB69 /* JournalEditorViewController.swift in Sources */,
 				52D59D7122C578EF003CCB69 /* JournalEntryViewController.swift in Sources */,
+				55B8FC0E2329C20C00BFBE0D /* Date+Extension.swift in Sources */,
 				527EBFDE22D7CCE900051BA0 /* JournalEntryTableViewCell.swift in Sources */,
 				52B2B20622BBF03D0022C15C /* AppDelegate.swift in Sources */,
 			);

@@ -23,14 +23,6 @@ class JournalListViewController: UIViewController {
     tableView.reloadData()
  }
 
-  /*
-  @IBAction func saveEntry(_ unwindSegue: UIStoryboardSegue) {
-    tableView.reloadData()
-  }
- */
-
-  let fruitArray = ["apples", "grapes", "oranges", "bananas"]
-
   var appDelegate: AppDelegate!
   var managedContext: NSManagedObjectContext!
   let reuseIdentifier = "JournalEntryCell"
@@ -65,32 +57,21 @@ class JournalListViewController: UIViewController {
       let entries = try managedContext.fetch(fetchRequest)
       for entry in entries {
         if let endDate = entry.value(forKeyPath: "endDate") as? Date,
-           let startDate = entry.value(forKeyPath: "startDate") as? Date,
-          let creationDate = entry.value(forKeyPath: "creationDate") as? Date {
-          let journalEntry = JournalEntry(creationDate: creationDate, endDate: endDate, startDate: startDate)
-          journalEntries.append(journalEntry)
-          print("loaded creationDate: \(creationDate)")
-          print("loaded endDate: \(endDate)")
-          print("loaded startDate: \(startDate)\n")
+            let startDate = entry.value(forKeyPath: "startDate") as? Date,
+            let creationDate = entry.value(forKeyPath: "creationDate") as? Date {
+            let journalEntry = JournalEntry(creationDate: creationDate,
+                                            endDate: endDate,
+                                            startDate: startDate)
+            journalEntries.append(journalEntry)
+            print("loaded creationDate: \(creationDate)")
+            print("loaded endDate: \(endDate)")
+            print("loaded startDate: \(startDate)\n")
         }
       }
     } catch let error as NSError {
       print("Could not fetch. \(error), \(error.userInfo)")
     }
 
-  }
-
-  // this needs to go into a utility class
-  func formatDateForDisplay(date: Date) -> String {
-    var dateString = ""
-
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateStyle = .long
-    dateFormatter.timeStyle = .none
-    dateFormatter.locale = Locale(identifier: "en_US")
-    dateString = dateFormatter.string(from: date)
-
-    return dateString
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -108,14 +89,13 @@ class JournalListViewController: UIViewController {
 
 extension JournalListViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    //return fruitArray.count
     return journalEntries.count
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier)! as! JournalEntryTableViewCell
-    //cell.fishingDateLabel.text = fruitArray[indexPath.row]
-    cell.fishingDateLabel.text = formatDateForDisplay(date: journalEntries[indexPath.row].startDate)
+    cell.fishingDateLabel.text = journalEntries[indexPath.row].startDate.string(in: .long)
+    
     return cell
   }
 
