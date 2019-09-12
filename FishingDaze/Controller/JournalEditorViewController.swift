@@ -208,8 +208,7 @@ class JournalEditorViewController: UITableViewController {
     } else {
       let origStartTime = startTimePicker.date
       // make the updated start time be 2 hours before the current time
-      let timeInterval = TimeInterval(60*60*2)
-      let updatedStartTime = origStartTime.addingTimeInterval(-timeInterval)
+      let updatedStartTime = Calendar.current.date(byAdding: .hour, value: -2, to: origStartTime)!
       startTimePicker.date = updatedStartTime
     }
 
